@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="アプリの登録">
+        <CheckBoxPreference
+                android:key="checkbox_preference"
+                android:title="有効にするかどうか"
+                android:summary="これをチェック入れると何かのアプリを起動します" />
+        <ListPreference
+                android:key="list_preference"
+                android:title="起動するアプリを選ぶ"
+                android:summary="起動するアプリを選ぶ"
+                android:enabled="false"
+                android:dialogTitle="この中からアプリを選んでね" />
+    </PreferenceCategory>
+</PreferenceScreen>

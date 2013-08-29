@@ -1,0 +1,37 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.5.+'
+        classpath 'com.deploygate:gradle:0.2'
+    }
+}
+apply plugin: 'android'
+apply plugin: 'deploygate'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:13.0.+'
+    compile files('libs/deploygatesdk.jar')
+}
+
+deploygate {
+    userName "henteko"
+    apkPath "AssistHack/build/apk/AssistHack-debug-unaligned.apk"
+    token myToken 
+    message "gradle update"
+}
+
+android {
+    compileSdkVersion 18
+    buildToolsVersion "18.0.0"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 16
+    }
+}
