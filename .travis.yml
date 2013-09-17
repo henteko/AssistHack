@@ -3,6 +3,8 @@ jdk:
   - oraclejdk7
 
 env:
+  global:
+    - secure: "uj32149LhL/Ns/Oy4311/J98a9N+JyhLIzU1RM8PQQiS5vIMx9CrnQU5xbYjOIm/jMjTpfuUicgk5Lq8q0oh6Fs7d2nSoZLUngjt5wS4OovtQpZfIdB46iIKakcO8xN2WUcYz2IOpYizyKooaOK30DgtOmxDMH6b6F2KfZTflLs="
   matrix:
   # - ANDROID_TARGET=android-8   ANDROID_SDKS=android-8,build-tools-17.0.0            ANDROID_BUILD_TOOLS_VERSION=17.0.0 ANDROID_ABI=armeabi
   # - ANDROID_TARGET=android-10  ANDROID_SDKS=android-10,build-tools-17.0.0,sysimg-10 ANDROID_BUILD_TOOLS_VERSION=17.0.0 ANDROID_ABI=armeabi
@@ -20,17 +22,14 @@ before_install:
   # Install required Android components.
   - android update sdk --filter platform-tools,android-16,extra-android-support,$ANDROID_SDKS --no-ui --force
 
-  # - gradle -q assemble
-  - secure: "dcpA/MFn0uMXV2vX86hIPCnZDKk2aR5YCyJeyANTZaVLBPblyqvKIePXOeXCB+74y6pdtEwlU42vdGC7d67FY4mOBlJ/vOZyjjvB3sCtI5pvIq2CwFWhQyGT3Qo7ZPWDAucoyISroBoTpp/7pCUt6rWB1kHKtO2+V2a9VTRLFjU="
+  - gradle -PmyToken=$DEPLOY_GATE_API_KEY -q assemble
 
 script:
   - gradle check > build.out
-  # - gradle build
-  - secure: "rnPcyREp1fvFgYIR7iphVGT9FTJd7oQMCsESRzgWkTKRcFTOinvpRg+KWv9dNUH3UgpOHGhIOfRfkC2WlNShVefEtnmdku0gV2LvRDTHuSyeBMi5ii7sycOq2hnhF3vgQpL01ecWOM19fS8c8/GjrEtCX5b6ERcrwv4dXr1C+Y4="
+  - gradle -PmyToken=$DEPLOY_GATE_API_KEY build
 
 after_failure: 
   - cat build.out
 
 after_success:
-  # - gradle uploadDeployGate
-  - secure: "QfCe97A7GAkT/838b76TgkokUci79quCy03HHW7EubDX8k0Ff0ckYmFUP0Wua6E8zn9aulQSeFwvAHFfb067ZzTqiRXDABhFd2OJIL9RI+QkfeOgk3NwU311yLW749aRdJj85eNuycOJRUMtMJ8PqekdF93BOsn+gI/oSaHGpyw="
+  - gradle -PmyToken=$DEPLOY_GATE_API_KEY uploadDeployGate
