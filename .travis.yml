@@ -14,14 +14,22 @@ before_install:
   # Install base Android SDK
   - sudo apt-get update -qq
   - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch; fi
-  - wget http://dl.google.com/android/android-sdk_r21.0.1-linux.tgz
-  - tar xzf android-sdk_r21.0.1-linux.tgz
-  - export ANDROID_HOME=$PWD/android-sdk-linux
-  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+  - wget http://dl.google.com/android/android-sdk_r22-linux.tgz
+  - tar xzf android-sdk_r22-linux.tgz
+  - export ANDROID_HOME=`pwd`/android-sdk-linux
+  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/build-tools/$ANDROID_BUILD_TOOLS_VERSION
 
   # Install required Android components.
-  - android update sdk --filter platform-tools,android-16,extra-android-support,$ANDROID_SDKS --no-ui --force
+  - android list sdk --extended
+  # Do you accept the license 'android-sdk-license-bcbbd656' [y/n]:
+  - echo -e "y\n" > accept.txt
+  - android update sdk --filter platform-tools,extra-android-support,$ANDROID_SDKS --no-ui --force < accept.txt
 
+  # PROVISIONAL: changed SDKr22 build-tools path. create symbolic link
+  - if [ ! -e ${ANDROID_HOME}/platform-tools/aapt ]; then ln -s ${ANDROID_HOME}/build-tools/$ANDROID_BUILD_TOOLS_VERSION/aapt ${ANDROID_HOME}/platform-tools/aapt; fi
+  - if [ ! -e ${ANDROID_HOME}/platform-tools/aidl ]; then ln -s ${ANDROID_HOME}/build-tools/$ANDROID_BUILD_TOOLS_VERSION/aidl ${ANDROID_HOME}/platform-tools/aidl; fi
+
+  # gradle set up
   - gradle -PmyToken=$DEPLOY_GATE_API_KEY -q assemble
 
 script:
