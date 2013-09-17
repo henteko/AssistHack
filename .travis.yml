@@ -20,14 +20,17 @@ before_install:
   # Install required Android components.
   - android update sdk --filter platform-tools,android-16,extra-android-support,$ANDROID_SDKS --no-ui --force
 
-  - gradle -PmyToken=secure: "oVi8OROZUPiTNQBiFCuSeEjKtgCDSIM/qo1lnk0vUzIH9yQc1YcprSfHnscm6S5q/pkgZmI0N+vt41kUb3jHnqswtAWwc8XzbzDQpCfPmlmzwhJ2uhqkrueaSB+N3u8KtaAMhL6DTrLvUrbdVegg62HfukIx5IDELdDA7QID24Y=" -q assemble
+  # - gradle -q assemble
+  - secure: "dcpA/MFn0uMXV2vX86hIPCnZDKk2aR5YCyJeyANTZaVLBPblyqvKIePXOeXCB+74y6pdtEwlU42vdGC7d67FY4mOBlJ/vOZyjjvB3sCtI5pvIq2CwFWhQyGT3Qo7ZPWDAucoyISroBoTpp/7pCUt6rWB1kHKtO2+V2a9VTRLFjU="
 
 script:
   - gradle check > build.out
-  - gradle -PmyToken=secure: "oVi8OROZUPiTNQBiFCuSeEjKtgCDSIM/qo1lnk0vUzIH9yQc1YcprSfHnscm6S5q/pkgZmI0N+vt41kUb3jHnqswtAWwc8XzbzDQpCfPmlmzwhJ2uhqkrueaSB+N3u8KtaAMhL6DTrLvUrbdVegg62HfukIx5IDELdDA7QID24Y=" build
+  # - gradle build
+  - secure: "rnPcyREp1fvFgYIR7iphVGT9FTJd7oQMCsESRzgWkTKRcFTOinvpRg+KWv9dNUH3UgpOHGhIOfRfkC2WlNShVefEtnmdku0gV2LvRDTHuSyeBMi5ii7sycOq2hnhF3vgQpL01ecWOM19fS8c8/GjrEtCX5b6ERcrwv4dXr1C+Y4="
 
 after_failure: 
   - cat build.out
 
 after_success:
-  - gradle -PmyToken=secure: "oVi8OROZUPiTNQBiFCuSeEjKtgCDSIM/qo1lnk0vUzIH9yQc1YcprSfHnscm6S5q/pkgZmI0N+vt41kUb3jHnqswtAWwc8XzbzDQpCfPmlmzwhJ2uhqkrueaSB+N3u8KtaAMhL6DTrLvUrbdVegg62HfukIx5IDELdDA7QID24Y=" uploadDeployGate
+  # - gradle uploadDeployGate
+  - secure: "QfCe97A7GAkT/838b76TgkokUci79quCy03HHW7EubDX8k0Ff0ckYmFUP0Wua6E8zn9aulQSeFwvAHFfb067ZzTqiRXDABhFd2OJIL9RI+QkfeOgk3NwU311yLW749aRdJj85eNuycOJRUMtMJ8PqekdF93BOsn+gI/oSaHGpyw="
