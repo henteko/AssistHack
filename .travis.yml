@@ -1,12 +1,11 @@
-# 64bit UbuntuでAndroid SDKを動かすために必要なパッケージ
 - sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch
-# Android SDKのインストール
+
 - wget http://dl.google.com/android/android-sdk_r21.1-linux.tgz
 - tar -zxf android-sdk_r21.1-linux.tgz
-# パスの設定
+
 - export ANDROID_HOME=`pwd`/android-sdk-linux
 - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
-# Androidパッケージのインストール。1はplatform-toolsで必須。他はビルドしたいAPI Levelによって変更してください。
+
 - android list sdk
 - android update sdk --filter 1,3,6,10 --no-ui --force
 
