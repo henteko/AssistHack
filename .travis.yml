@@ -30,14 +30,14 @@ before_install:
   - if [ ! -e ${ANDROID_HOME}/platform-tools/aidl ]; then ln -s ${ANDROID_HOME}/build-tools/$ANDROID_BUILD_TOOLS_VERSION/aidl ${ANDROID_HOME}/platform-tools/aidl; fi
 
   # gradle set up
-  - gradle -PmyToken=$DEPLOY_GATE_API_KEY -q assemble
+  - ./gradlew -PmyToken=$DEPLOY_GATE_API_KEY -q assemble
 
 script:
-  - gradle check > build.out
-  - gradle -PmyToken=$DEPLOY_GATE_API_KEY build
+  - ./gradlew check > build.out
+  - ./gradlew -PmyToken=$DEPLOY_GATE_API_KEY build
 
 after_failure: 
   - cat build.out
 
 after_success:
-  - gradle -PmyToken=$DEPLOY_GATE_API_KEY uploadDeployGate
+  - ./gradlew -PmyToken=$DEPLOY_GATE_API_KEY uploadDeployGate
