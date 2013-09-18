@@ -10,7 +10,7 @@ env:
   # - ANDROID_TARGET=android-8   ANDROID_SDKS=android-8,build-tools-17.0.0            ANDROID_BUILD_TOOLS_VERSION=17.0.0 ANDROID_ABI=armeabi
   # - ANDROID_TARGET=android-10  ANDROID_SDKS=android-10,build-tools-17.0.0,sysimg-10 ANDROID_BUILD_TOOLS_VERSION=17.0.0 ANDROID_ABI=armeabi
   # - ANDROID_TARGET=android-15  ANDROID_SDKS=android-15,build-tools-17.0.0,sysimg-15 ANDROID_BUILD_TOOLS_VERSION=17.0.0 ANDROID_ABI=armeabi-v7a
-  - ANDROID_TARGET=android-18  ANDROID_SDKS=android-18,build-tools-18.0.1,sysimg-18 ANDROID_BUILD_TOOLS_VERSION=18.0.1 ANDROID_ABI=armeabi-v7a
+  - ANDROID_TARGET=android-18  ANDROID_SDKS=android-18,build-tools-18.0.1,sysimg-18 ANDROID_BUILD_TOOLS_VERSION=18.0.0 ANDROID_ABI=armeabi-v7a
 before_install:
   # Install base Android SDK
   - sudo apt-get update -qq
@@ -24,7 +24,7 @@ before_install:
   - android list sdk --extended
   # Do you accept the license 'android-sdk-license-bcbbd656' [y/n]:
   - echo -e "y\n" > accept.txt
-  - android update sdk --filter platform-tools,extra-android-support,extra-android-m2repository,$ANDROID_SDKS --no-ui --force < accept.txt
+  - android update sdk --filter build-tools,platform-tools,extra-android-support,extra-android-m2repository,$ANDROID_SDKS --no-ui --force < accept.txt
   # - android update sdk --filter extra-android-support --no-ui --force > /dev/null
   # - android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null
 
