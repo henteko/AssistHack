@@ -4,12 +4,13 @@ jdk:
 
 env:
   global:
+    # DEPLOY_GATE_API_KEY=<your deploygate api key>
     - secure: "uj32149LhL/Ns/Oy4311/J98a9N+JyhLIzU1RM8PQQiS5vIMx9CrnQU5xbYjOIm/jMjTpfuUicgk5Lq8q0oh6Fs7d2nSoZLUngjt5wS4OovtQpZfIdB46iIKakcO8xN2WUcYz2IOpYizyKooaOK30DgtOmxDMH6b6F2KfZTflLs="
   matrix:
   # - ANDROID_TARGET=android-8   ANDROID_SDKS=android-8,build-tools-17.0.0            ANDROID_BUILD_TOOLS_VERSION=17.0.0 ANDROID_ABI=armeabi
   # - ANDROID_TARGET=android-10  ANDROID_SDKS=android-10,build-tools-17.0.0,sysimg-10 ANDROID_BUILD_TOOLS_VERSION=17.0.0 ANDROID_ABI=armeabi
   # - ANDROID_TARGET=android-15  ANDROID_SDKS=android-15,build-tools-17.0.0,sysimg-15 ANDROID_BUILD_TOOLS_VERSION=17.0.0 ANDROID_ABI=armeabi-v7a
-  - ANDROID_TARGET=android-18  ANDROID_SDKS=android-18,build-tools-17.0.0,sysimg-18 ANDROID_BUILD_TOOLS_VERSION=17.0.0 ANDROID_ABI=armeabi-v7a
+  - ANDROID_TARGET=android-18  ANDROID_SDKS=android-17,build-tools-17.0.0,sysimg-17 ANDROID_BUILD_TOOLS_VERSION=17.0.0 ANDROID_ABI=armeabi-v7a
 before_install:
   # Install base Android SDK
   - sudo apt-get update -qq
