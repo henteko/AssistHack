@@ -25,6 +25,8 @@ before_install:
   # Do you accept the license 'android-sdk-license-bcbbd656' [y/n]:
   - echo -e "y\n" > accept.txt
   - android update sdk --filter build-tools,platform-tools,extra-android-support,extra-android-m2repository,$ANDROID_SDKS --no-ui --force < accept.txt
+  - android update sdk --filter build-tools,platform-tools,extra-android-support,extra-android-m2repository,$ANDROID_SDKS --no-ui --force < accept.txt
+
   # - android update sdk --filter extra-android-support --no-ui --force > /dev/null
   # - android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null
 
