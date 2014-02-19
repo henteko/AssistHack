@@ -1,9 +1,10 @@
 # AssistHack
+[<img src="https://dply.me/inobd5/button/small" alt="Download to device">](https://dply.me/inobd5#install)  
 AssistHackはAndroid 4.1から追加されたGoogle Nowを起動するあのアクションを任意のアプリに切り替えるアプリです。
 ライフチェンジング感ありますね。
 
 ## 以下よりダウンロードが出来ます。(DeployGate)
-[AssistHack - DeployGate](https://deploygate.com/distributions/e62d78133f075debe02fd7c107e2672041ba558f)
+[<img src="https://dply.me/inobd5/button/large" alt="Try it on your device via DeployGate">](https://dply.me/inobd5#install)
 
 ## Enjoy!
 
