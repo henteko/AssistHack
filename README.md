@@ -1,4 +1,5 @@
 # AssistHack
+[![Build Status](https://travis-ci.org/henteko/AssistHack.png?branch=master)](https://travis-ci.org/henteko/AssistHack)
 [<img src="https://dply.me/inobd5/button/small" alt="Download to device">](https://dply.me/inobd5#install)  
 AssistHackはAndroid 4.1から追加されたGoogle Nowを起動するあのアクションを任意のアプリに切り替えるアプリです。
 ライフチェンジング感ありますね。

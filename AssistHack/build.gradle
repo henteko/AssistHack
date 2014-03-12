@@ -20,8 +20,8 @@ dependencies {
 }
 
 deploygate {
-    userName = name
-    token = myToken 
+    userName = "henteko"
+    token = myToken
 
     apks {
         Release {
